@@ -1,5 +1,4 @@
 <?php
-
 function get_html($url)
 {
     $ch = curl_init();
@@ -16,8 +15,6 @@ function get_html($url)
 
     curl_close($ch);
 
-    echo "get html successfully...<br>";
     return $res;
 }
-
 ?>
