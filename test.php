@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset: utf-8');
+/*header('Content-Type: text/html; charset: utf-8');
 
 require ('curl_get.php');   //获取html页面
 require ('simple_html_dom.php');
@@ -14,12 +14,12 @@ $douban = new simple_html_dom(); //创建simple_html_dom对象douban
 $douban->load($html);
 
 
-/*$links = $douban->find('a');
+$links = $douban->find('a');
 
 foreach ($links as $key => $value)
 {
     echo "$value->href<br>";
-}*/
+}
 
 $posters = $douban->find('img');
 
@@ -28,7 +28,8 @@ $posters = $douban->find('img');
 foreach ($posters as $key => $value)
 {
     echo "$value->src<br>";
-}
+}*/
+
 
 
 

@@ -67,3 +67,18 @@ https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2492665487.jpg  /
 
 top250
 https://movie.douban.com/top250?start=75&filter=        //top250翻页 start=75在第四页    75=25*3
+
+
+PDO连接数据库出错
+
+$server = 'localhost';
+$user = 'dev';
+$pwd = 'dev123456';
+$conn = new PDO("mysql:host=$server;dbname=douban", $user, $pwd);
+
+PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1049] Unknown database 'douban' in /var/www/html/douban_spider/conn/conn.php:6
+Stack trace:
+#0 /var/www/html/douban_spider/conn/conn.php(6): PDO->__construct('mysql:host=loca...', 'dev', 'dev123456')
+#1 /var/www/html/douban_spider/top250.php(5): require('/var/www/html/d...')
+#2 {main}
+  thrown in /var/www/html/douban_spider/conn/conn.php on line 6
