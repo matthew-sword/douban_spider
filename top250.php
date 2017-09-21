@@ -1,23 +1,26 @@
 <?php
-header('Content-Type: text/html; charset: utf-8');
+//header('Content-Type: text/html; charset: utf-8');
 require ('curl_get.php');   //获取html页面
-require ('simple_html_dom.php'); //equire
+require ('simple_html_dom.php'); //提取html页面
 require ('conn/conn.php'); //连接数据库
 
-function show_list()    //爬取一页暂停10s,可加入文件写入
+
+function get_list($conn)    //爬取一页暂停10s,可加入文件写入
 {
     $i = 0;
     $rank = 1;
     $url = 'https://movie.douban.com/top250';
     $list = fopen("top_list.txt","w+");
+    echo "file opened...\n";
 
     //创建电影数据表  记得关闭链接！！！
-    $conn->prepare("CREATE TABLE ");
+    $m_table = $conn->prepare("CREATE TABLE IF NOT EXISTS top250(
+                                        rank INT PRIMARY KEY AUTO_INCREMENT,
+                                        link VARCHAR(100))    DEFAULT CHARSET=utf8 ");
+    if ($m_table->execute())
+        echo "table cteated...\n";
 
-
-
-    echo "file open...\n";
-
+    //循环爬取网页
     while($i < 10)
     {
         //获取网页内容
@@ -46,6 +49,7 @@ function show_list()    //爬取一页暂停10s,可加入文件写入
             //过滤html标签
             $value = strip_tags($value);
             $clean = str_replace('&nbsp;','',$value);
+
             //输出&写入
             echo $clean;
             fwrite($list,$clean);
@@ -54,46 +58,84 @@ function show_list()    //爬取一页暂停10s,可加入文件写入
         //详情链接写入mysql
         foreach ($addrs as $key => $value)
         {
-            if ( preg_match($addr_reg,$value->href) )
+            //匹配电影详情页的url && 去重
+            if ( preg_match($addr_reg,$value->href) &&
+                 !strstr($addrs[$key]->href,$addrs[$key+1]->href) )
             {
-
+                $add = $value->href;
+                $m_table = $conn->prepare("INSERT INTO top250 (link) VALUES (:link)");
+                $m_table->bindParam(':link',$add);
+                $m_table->execute();
             }
         }
 
-        //暂停爬取10s
-        //sleep(10);
+        //暂停爬取5~10s
+        /*$time = rand(5,10);
+        echo "\n\nsleeping($time s)...\n";
+        sleep($time);*/
+
         //url生成
         $i++;
         $url = 'https://movie.douban.com/top250?start='.(string)($i*25).'&filter=';
+
         //清空dom内存
         $douban->clear();
     }
+
+    //关闭文件 & mysql链接
     fclose($list);
+
+
 }
 
 
-show_list();
-
-function show_detail()
+function get_detail($conn)
 {
-    $url = 'https://movie.douban.com/top250';
+//    /*$url = 'https://movie.douban.com/top250';
+//
+//    $html = get_html($url);
+//
+//    $douban = new simple_html_dom(); //创建simple_html_dom对象douban
+//
+//    $douban->load($html);
+//
+//    $links = $douban->find('li.item');
+//    foreach ($links as $key => $value)
+//    {
+//        echo "$value<br>";
+//
+//    }*/
 
-    $html = get_html($url);
-
-    $douban = new simple_html_dom(); //创建simple_html_dom对象douban
-
-    $douban->load($html);
-
-    $links = $douban->find('li.item');
-    foreach ($links as $key => $value)
+    for($i = 1;$i <= 2; $i++)
     {
-        echo "$value<br>";
+        //获取详情页url
+        $m_table = $conn->prepare("SELECT link FROM top250 WHERE rank = $i");
+        $m_table->execute();
+        $link = $m_table->fetch();
+        //echo "$i => $link[0] \n";
 
+        //爬取详情页
+        $html = get_html($link[0]);
+        $douban = new simple_html_dom(); //创建simple_html_dom对象douban
+        $douban->load($html);
+
+        //提取内容
+        $posters = $douban->find('img');
+
+        print_r($posters);
     }
 
+
+
+
+
 }
 
-//show_detail();
+//get_list($conn);
+
+get_detail($conn);
+
+$conn = null;
 
 
 
