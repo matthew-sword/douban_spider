@@ -112,17 +112,64 @@ function get_detail($conn)
         $m_table = $conn->prepare("SELECT link FROM top250 WHERE rank = $i");
         $m_table->execute();
         $link = $m_table->fetch();
-        //echo "$i => $link[0] \n";
 
         //爬取详情页
         $html = get_html($link[0]);
         $douban = new simple_html_dom(); //创建simple_html_dom对象douban
         $douban->load($html);
 
-        //提取内容
-        $posters = $douban->find('img');
+       /* //提取海报url
+        $posters = $douban->find('.nbgnbg');
 
-        print_r($posters);
+        //下载海报
+        foreach ($posters as $value)
+        {
+            $src = $value->children[0]->src;
+
+            //获取海报
+            ob_start();
+            readfile($src);
+            $img = ob_get_contents();
+            ob_end_clean();
+
+            //保存海报
+            $picname = "$i".'.jpg';
+            $file_img=fopen("poster/".$picname,"w+");
+            fwrite($file_img,$img);
+            fclose($file_img);
+        }
+
+
+        //获取简介
+        $short = $douban->find('div[id=link-report]');
+
+        //保存简介
+        foreach ($short as $value)
+        {
+            //提取简介
+            $summary = $value->children[0]->innertext;
+            $summary = strip_tags($summary);
+
+            //写入文件
+            $sumname = "$i".'.txt';
+            $file_sum = fopen("summary/".$sumname,"w+");
+            fwrite($file_sum,$summary);
+            fclose($file_sum);
+        }*/
+
+
+        //获取影评
+        $comments = $douban->find('div.comment');
+
+        foreach ($comments as $value)
+        {
+            $comment = $value->children[1]->innertext;
+            echo $comment."\n\n";
+        }
+
+
+        //清空内存
+        $douban->clear();
     }
 
 
