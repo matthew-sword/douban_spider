@@ -4,11 +4,12 @@ require ('curl_get.php');   //获取html页面
 require ('simple_html_dom.php'); //提取html页面
 require ('conn/conn.php'); //连接数据库
 
-
-function get_list($conn)    //爬取一页暂停10s,可加入文件写入
+//爬取top250列表页，获取排名 名称 详情页url，并把名称写入top_list.txt
+function get_list($conn)
 {
     $i = 0;
     $rank = 1;
+    $tb_writed = 0;
     $url = 'https://movie.douban.com/top250';
     $list = fopen("top_list.txt","w+");
     echo "file opened...\n";
@@ -55,24 +56,29 @@ function get_list($conn)    //爬取一页暂停10s,可加入文件写入
             fwrite($list,$clean);
         }
 
-        //详情链接写入mysql
-        foreach ($addrs as $key => $value)
+        if ($tb_writed <= 250)
         {
-            //匹配电影详情页的url && 去重
-            if ( preg_match($addr_reg,$value->href) &&
-                 !strstr($addrs[$key]->href,$addrs[$key+1]->href) )
+            //详情链接写入mysql
+            foreach ($addrs as $key => $value)
             {
-                $add = $value->href;
-                $m_table = $conn->prepare("INSERT INTO top250 (link) VALUES (:link)");
-                $m_table->bindParam(':link',$add);
-                $m_table->execute();
+                //匹配电影详情页的url && 去重
+                if ( preg_match($addr_reg,$value->href) &&
+                    !strstr($addrs[$key]->href,$addrs[$key+1]->href) )
+                {
+                    $add = $value->href;
+                    $m_table = $conn->prepare("INSERT INTO top250 (link) VALUES (:link)");
+                    $m_table->bindParam(':link',$add);
+                    $m_table->execute();
+                }
             }
+            $tb_writed ++;
+
         }
 
-        //暂停爬取5~10s
-        /*$time = rand(5,10);
-        echo "\n\nsleeping($time s)...\n";
-        sleep($time);*/
+        //随机暂停3-5秒
+        $time = rand(3,5);
+        echo "\nsleeping($time s)...\n";
+        sleep($time);
 
         //url生成
         $i++;
@@ -82,31 +88,16 @@ function get_list($conn)    //爬取一页暂停10s,可加入文件写入
         $douban->clear();
     }
 
-    //关闭文件 & mysql链接
+    //关闭文件
     fclose($list);
 
 
 }
 
-
+//获取top250详细信息，抓取海报，简介，影评
 function get_detail($conn)
 {
-//    /*$url = 'https://movie.douban.com/top250';
-//
-//    $html = get_html($url);
-//
-//    $douban = new simple_html_dom(); //创建simple_html_dom对象douban
-//
-//    $douban->load($html);
-//
-//    $links = $douban->find('li.item');
-//    foreach ($links as $key => $value)
-//    {
-//        echo "$value<br>";
-//
-//    }*/
-
-    for($i = 1;$i <= 2; $i++)
+    for($i = 1;$i <= 250; $i++)
     {
         //获取详情页url
         $m_table = $conn->prepare("SELECT link FROM top250 WHERE rank = $i");
@@ -118,9 +109,8 @@ function get_detail($conn)
         $douban = new simple_html_dom(); //创建simple_html_dom对象douban
         $douban->load($html);
 
-       /* //提取海报url
+       //提取海报url
         $posters = $douban->find('.nbgnbg');
-
         //下载海报
         foreach ($posters as $value)
         {
@@ -133,7 +123,7 @@ function get_detail($conn)
             ob_end_clean();
 
             //保存海报
-            $picname = "$i".'.jpg';
+            $picname = "poster"."$i".'.jpg';
             $file_img=fopen("poster/".$picname,"w+");
             fwrite($file_img,$img);
             fclose($file_img);
@@ -142,7 +132,6 @@ function get_detail($conn)
 
         //获取简介
         $short = $douban->find('div[id=link-report]');
-
         //保存简介
         foreach ($short as $value)
         {
@@ -151,54 +140,64 @@ function get_detail($conn)
             $summary = strip_tags($summary);
 
             //写入文件
-            $sumname = "$i".'.txt';
-            $file_sum = fopen("summary/".$sumname,"w+");
+            $sumname = "summary"."$i".'.txt';
+            $file_sum = fopen("summary/".$sumname,"a+");
             fwrite($file_sum,$summary);
             fclose($file_sum);
-        }*/
+        }
+
+
+        //爬取基本信息
+        $infos = $douban->find('div[id=info]');
+        foreach ($infos as $value)
+        {
+            //获取基本信息
+            $info = $value->innertext;
+            $info = strip_tags($info);
+
+            //写入文件
+            $sumname = "summary"."$i".'.txt';
+            $file_sum = fopen("summary/".$sumname,"a+");
+            fwrite($file_sum,"\n\n\n".$info);
+            fclose($file_sum);
+        }
 
 
         //获取影评
         $comments = $douban->find('div.comment');
-
+        //保存影评
         foreach ($comments as $value)
         {
+            //抓取影评
             $comment = $value->children[1]->innertext;
-            echo $comment."\n\n";
-        }
 
+
+            //写入文件
+            $comname = "comments"."$i".'.txt';
+            $file_com = fopen("comment/".$comname,"a+");
+            fwrite($file_com,$comment."\n\n");
+            fclose($file_com);
+        }
 
         //清空内存
         $douban->clear();
+
+        //随机暂停5-10秒
+        $time = rand(5,10);
+        echo "\n$i movies gotten...\n";
+        echo "\nsleeping($time s)...\n";
+        sleep($time);
     }
-
-
-
-
 
 }
 
-//get_list($conn);
+
+get_list($conn);
 
 get_detail($conn);
 
 $conn = null;
 
 
-
-
-/*$links = $douban->find('a');
-
-foreach ($links as $key => $value)
-{
-    echo "$value->href<br>";
-}*/
-
-/*$posters = $douban->find('img');
-
-foreach ($posters as $key => $value)
-{
-    echo "$value->src<br>";
-}*/
 
 ?>

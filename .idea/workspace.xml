@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72622328-2a8a-4c48-85e2-0cd416bc8c18" name="默认的" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/poster/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/poster/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/summary/1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/summary/2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/top_list.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/top250.php" afterPath="$PROJECT_DIR$/top250.php" />
     </list>
@@ -51,16 +56,20 @@
       <file leaf-file-name="top250.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/top250.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="161" column="39" lean-forward="false" selection-start-line="161" selection-start-column="39" selection-end-line="161" selection-end-column="39" />
+            <state relative-caret-position="364">
+              <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
               <folding>
                 <element signature="n#get_list#0;n#!!top" expanded="false" />
-                <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-                <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-                <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-                <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-                <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-                <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+                <element signature="e#1724#2216#0#PHP" expanded="false" />
+                <element signature="n#get_detail#0;n#!!top" expanded="false" />
+                <element signature="e#4007#4352#0#PHP" expanded="false" />
+                <element signature="e#4443#4769#0#PHP" expanded="false" />
+                <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+                <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+                <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+                <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+                <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+                <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -144,8 +153,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,11 +205,12 @@
       <workItem from="1505975628939" duration="10769000" />
       <workItem from="1505993983484" duration="6099000" />
       <workItem from="1506002392063" duration="5989000" />
+      <workItem from="1506057864883" duration="4806000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75478000" />
+    <option name="totallyTimeSpent" value="80284000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -244,7 +254,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -271,12 +281,16 @@
           <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -285,7 +299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1768">
           <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -319,12 +332,16 @@
           <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -333,7 +350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1768">
           <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -367,12 +383,16 @@
           <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -381,7 +401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -415,12 +434,16 @@
           <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -429,7 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -463,12 +485,16 @@
           <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -477,7 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -511,12 +536,16 @@
           <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -525,7 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,7 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -634,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -648,16 +674,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/top250.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="161" column="39" lean-forward="false" selection-start-line="161" selection-start-column="39" selection-end-line="161" selection-end-column="39" />
+        <state relative-caret-position="364">
+          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
           <folding>
             <element signature="n#get_list#0;n#!!top" expanded="false" />
-            <marker date="1506008096588" expanded="false" signature="428:622" ph="CREATE TABLE... top250" />
-            <marker date="1506008096588" expanded="true" signature="1925:1965" ph="INSERT INTO top250... " />
-            <marker date="1506008096588" expanded="true" signature="2851:2888" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="true" signature="2851:2890" ph="SELECT link top250" />
-            <marker date="1506008096588" expanded="false" signature="3228:3608" ph="{...}" />
-            <marker date="1506008096588" expanded="false" signature="3731:4054" ph="{...}" />
+            <element signature="e#1724#2216#0#PHP" expanded="false" />
+            <element signature="n#get_detail#0;n#!!top" expanded="false" />
+            <element signature="e#4007#4352#0#PHP" expanded="false" />
+            <element signature="e#4443#4769#0#PHP" expanded="false" />
+            <marker date="1506062576956" expanded="false" signature="472:666" ph="CREATE TABLE... top250" />
+            <marker date="1506062576956" expanded="true" signature="2045:2085" ph="INSERT INTO top250... " />
+            <marker date="1506062576956" expanded="true" signature="2714:2751" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="true" signature="2714:2753" ph="SELECT link top250" />
+            <marker date="1506062576956" expanded="false" signature="3087:3476" ph="{...}" />
+            <marker date="1506062576956" expanded="false" signature="3598:3931" ph="{...}" />
           </folding>
         </state>
       </provider>
